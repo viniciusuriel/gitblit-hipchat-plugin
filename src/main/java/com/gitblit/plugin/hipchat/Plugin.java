@@ -24,11 +24,11 @@ import com.gitblit.servlet.GitblitContext;
 
 public class Plugin extends GitblitPlugin {
 
-	public static final String SETTING_DEFAULT_ROOM = "hipchat.%s.room";
+	public static final String SETTING_ROOM = "hipchat.room.%s";
 
-	public static final String SETTING_DEFAULT_TOKEN = "hipchat.defaultToken";
+	public static final String SETTING_REPO = "hipchat.room.%s.repo";
 
-	public static final String SETTING_ROOM_TOKEN = "hipchat.%s.token";
+	public static final String SETTING_TOKEN = "hipchat.room.%s.token";
 
 	public static final String SETTING_USE_PROJECT_ROOMS = "hipchat.useProjectRooms";
 

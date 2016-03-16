@@ -19,6 +19,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -46,6 +48,7 @@ import com.google.gson.GsonBuilder;
  * Configures the final payload and sends a HipChat message.
  *
  * @author James Moger
+ * @author Vinicius Uriel
  *
  */
 public class HipChatter implements IManager {
@@ -57,6 +60,10 @@ public class HipChatter implements IManager {
 	final IRuntimeManager runtimeManager;
 
 	final ExecutorService taskPool;
+
+	final Map<String, RepoConfig> configs = new HashMap<String, RepoConfig>();
+
+
 
 	public static void init(IRuntimeManager manager) {
 		if (instance == null) {
@@ -71,6 +78,21 @@ public class HipChatter implements IManager {
 	HipChatter(IRuntimeManager runtimeManager) {
 		this.runtimeManager = runtimeManager;
 		this.taskPool = Executors.newCachedThreadPool();
+		parseConfigs();
+	}
+
+	private void parseConfigs(){
+		int i = 0;
+		String room = null;
+		while ((room = runtimeManager.getSettings().getString(String.format(Plugin.SETTING_ROOM, i), null)) != null){
+			RepoConfig config = new RepoConfig();
+			config.setIndex(i);
+			config.setRoomName(room);
+			config.setRepo(runtimeManager.getSettings().getString(String.format(Plugin.SETTING_REPO, i), null));
+			config.setToken(runtimeManager.getSettings().getString(String.format(Plugin.SETTING_TOKEN, i), null));
+			configs.put(config.getRepo(), config);
+			i++;
+		}
 	}
 
 	@Override
