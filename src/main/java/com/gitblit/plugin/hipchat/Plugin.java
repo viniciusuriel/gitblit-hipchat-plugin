@@ -24,7 +24,7 @@ import com.gitblit.servlet.GitblitContext;
 
 public class Plugin extends GitblitPlugin {
 
-	public static final String SETTING_DEFAULT_ROOM = "hipchat.defaultRoom";
+	public static final String SETTING_DEFAULT_ROOM = "hipchat.%s.room";
 
 	public static final String SETTING_DEFAULT_TOKEN = "hipchat.defaultToken";
 

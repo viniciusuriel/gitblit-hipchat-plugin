@@ -8,25 +8,21 @@ The Gitblit HipChat plugin provides realtime integration for your HipChat team. 
 
 ### Installation
 
-This plugin is referenced in the Gitblit Plugin Registry and you may install it using SSH with an administrator account.
-
-    ssh host plugin refresh
-    ssh host plugin install hipchat
-    ssh host plugin ls
+Build (see section Building against a Gitblit RELEASE)
 
 Alternatively, you can download the zip from [here](http://plugins.gitblit.com) manually copy it to your `${baseFolder}/plugins` directory.
 
 ### Setup
 
-At a bare minimum you'll need two settings configured in `gitblit.properties`.
+There are a few changes compared with the original version published by James Morger.
 
-    hipchat.defaultRoom = aRoom
-    hipchat.defaultToken = aToken
+You will need three  properties  configured in `gitblit.properties` for each room.
+Each room configuration should be identified by an integer counter (zero based).
+The example below show how to configure a single room:
 
-If you have the `powertools` plugin installed, you may configure this over SSH:
-
-    ssh host gb config hipchat.defaultRoom aRoom
-    ssh host gb config hipchat.defaultToken aToken
+    hipchat.room.1 = <room_name>
+    hipchat.room.1.token = <token>
+    hipchat.room.1.repo = <repo_name>
 
 There a handful of additional optional settings:
 
