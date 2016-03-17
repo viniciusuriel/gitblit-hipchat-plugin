@@ -54,15 +54,19 @@ public class HipChatDispatcher extends DispatchCommand {
 		@Argument(index = 0, metaVar = "ROOM", usage = "Destination Room for message")
 		String room;
 
+		@Argument(index = 1, metaVar = "TOKEN", usage = "Room Token for message")
+		String token;
+
 		/**
 		 * Post a test message
 		 */
 		@Override
 		public void run() throws Failure {
+			RepoConfig config = new RepoConfig();
 		    Payload payload = Payload.text("Test message sent from Gitblit");
-		    if (!StringUtils.isEmpty(room)) {
-		    	payload.room(room);
-		    }
+		    config.setRoomName(room);
+			config.setToken(token);
+			payload.setConfig(config);
 
 			try {
 				IRuntimeManager runtimeManager = GitblitContext.getManager(IRuntimeManager.class);
@@ -84,6 +88,9 @@ public class HipChatDispatcher extends DispatchCommand {
 		@Argument(index = 0, metaVar = "ROOM", usage = "Destination Room for message")
 		String room;
 
+        @Argument(index = 1, metaVar = "TOKEN", usage = "Room Token for message")
+        String token;
+
 		@Option(name = "--message", aliases = {"-m" }, metaVar = "-|MESSAGE", required = true)
 		String message;
 
@@ -92,11 +99,11 @@ public class HipChatDispatcher extends DispatchCommand {
 		 */
 		@Override
 		public void run() throws Failure {
-			Payload payload = Payload.text(message);
-
-		    if (!StringUtils.isEmpty(room)) {
-		    	payload.room(room);
-		    }
+            RepoConfig config = new RepoConfig();
+            Payload payload = Payload.text(message);
+            config.setRoomName(room);
+            config.setToken(token);
+            payload.setConfig(config);
 
 			IRuntimeManager runtimeManager = GitblitContext.getManager(IRuntimeManager.class);
 			HipChatter.init(runtimeManager);

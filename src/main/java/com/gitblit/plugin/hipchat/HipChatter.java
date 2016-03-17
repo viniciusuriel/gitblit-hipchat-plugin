@@ -129,22 +129,12 @@ public class HipChatter implements IManager {
             key = repository.name;
         }
 
-        payload.setRoom(findRoomByRepo(key).getRoomName());
+        payload.setConfig(findRoomByRepo(key));
     }
 
     private RepoConfig findRoomByRepo(String repo) {
         log.info(" Looking for repo: " + repo);
         return checkFordefaultRoom(configs.get(repo));
-    }
-
-    private RepoConfig findRoomByName(String roomName) {
-        log.info(" Looking for room with name: " + roomName);
-        for (RepoConfig config : configs.values()) {
-            if (roomName != null && roomName.equals(config.getRoomName())) {
-                return checkFordefaultRoom(config);
-            }
-        }
-        return checkFordefaultRoom(null);
     }
 
     private RepoConfig checkFordefaultRoom(RepoConfig config) {
@@ -201,10 +191,10 @@ public class HipChatter implements IManager {
      */
     public void send(Payload payload) throws IOException {
 
-        RepoConfig config = findRoomByName(payload.getRoom());
+        RepoConfig config = payload.getConfig();
 
-        if (StringUtils.isEmpty(payload.getRoom())) {
-            payload.setRoom(config.getRoomName());
+        if (payload.getConfig() == null) {
+            setRoom(null, payload);
         }
 
         String hipchatUrl = String.format("https://api.hipchat.com/v2/room/%s/notification?auth_token=%s", config.getRoomName(), config.getToken());

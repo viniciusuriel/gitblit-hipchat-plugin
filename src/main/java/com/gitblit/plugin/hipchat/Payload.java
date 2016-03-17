@@ -33,7 +33,7 @@ public class Payload {
 	@SerializedName("message_format")
 	private MessageFormat messageFormat;
 
-	private transient String room;
+	private transient RepoConfig config;
 
 	Payload() {
 	}
@@ -68,8 +68,8 @@ public class Payload {
 		return this;
 	}
 
-	public Payload room(String room) {
-		setRoom(room);
+	public Payload room(RepoConfig config) {
+		setConfig(config);
 		return this;
 	}
 
@@ -102,11 +102,11 @@ public class Payload {
 		this.color = color;
 	}
 
-	public String getRoom() {
-		return room;
+	public RepoConfig getConfig() {
+		return config;
 	}
 
-	public void setRoom(String room) {
-		this.room = room;
+	public void setConfig(RepoConfig config) {
+		this.config = config;
 	}
 }
