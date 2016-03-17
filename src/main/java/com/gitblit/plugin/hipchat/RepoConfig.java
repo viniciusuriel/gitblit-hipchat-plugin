@@ -38,4 +38,15 @@ public class RepoConfig {
     public void setToken(String token) {
         this.token = token;
     }
+
+
+    @Override
+    public String toString() {
+        return "RepoConfig{" +
+                "index=" + index +
+                ", repo='" + repo + '\'' +
+                ", roomName='" + roomName + '\'' +
+                ", token='" + token + '\'' +
+                '}';
+    }
 }
