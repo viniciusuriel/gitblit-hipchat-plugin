@@ -20,9 +20,12 @@ You will need three  properties  configured in `gitblit.properties` for each roo
 Each room configuration should be identified by an integer counter (zero based).
 The example below show how to configure a single room:
 
-    hipchat.room.1 = <room_name>
-    hipchat.room.1.token = <token>
-    hipchat.room.1.repo = <repo_name>
+    hipchat.room.0 = <room_name>
+    hipchat.room.0.token = <token>
+    hipchat.room.0.repo = <repo_name>
+    
+For the sake of simplicity this plugin will scan for 200 rooms configurations only.
+I have choose to keep the concept of defaultRoom, in this case the lowest index room is the defaultRoom
 
 There a handful of additional optional settings:
 

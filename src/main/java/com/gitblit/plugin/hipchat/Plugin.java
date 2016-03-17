@@ -24,6 +24,7 @@ import com.gitblit.servlet.GitblitContext;
 
 public class Plugin extends GitblitPlugin {
 
+
 	public static final String SETTING_ROOM = "hipchat.room.%s";
 
 	public static final String SETTING_REPO = "hipchat.room.%s.repo";
