@@ -29,30 +29,11 @@ I have choose to keep the concept of defaultRoom, in this case the lowest index 
 
 There a handful of additional optional settings:
 
-    hipchat.useProjectRooms = false
     hipchat.postPersonalRepos = false
     hipchat.postTickets = true
     hipchat.postTicketComments = true
     hipchat.postBranches = true
     hipchat.postTags = true
-
-#### hipchat.useProjectRooms
-
-*hipchat.useProjectRooms* allows you to shard Gitblit activity by the repository project.  This may fit better with any security model you may have in place.  These rooms *must* already exist in HipChat, the plugin will not create them for you.
-
-How are project rooms named?
-
-If project rooms are named as *hipchat.defaultRoom* -project, where *project* is the first directory element of the repository path.  If *project* is empty, the *hipchat.defaultRoom* is used.
-
-<pre>
-hipchat.defaultRoom = gb
-hipchat.defaultToken = aToken
-hipchat.useProjectRooms = true
-hipchat.gb-network.token = 12345
-</pre>
-
-- For the *network/a/b/myrepo.git* repository, the HipChat room would be *gb-network*.
-- For the *test.git* repository, the HipChat room would be *gb*.
 
 ### Usage
 

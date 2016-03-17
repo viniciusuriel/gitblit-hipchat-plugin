@@ -124,12 +124,6 @@ public class HipChatter implements IManager {
      * @param payload
      */
     public void setRoom(RepositoryModel repository, Payload payload) {
-        boolean useProjectChannels = runtimeManager.getSettings().getBoolean(Plugin.SETTING_USE_PROJECT_ROOMS, false);
-
-        if (!useProjectChannels) {
-            return;
-        }
-
         String key = null;
         if (repository != null) {
             key = repository.projectPath + "/" + repository.name;

@@ -31,8 +31,6 @@ public class Plugin extends GitblitPlugin {
 
 	public static final String SETTING_TOKEN = "hipchat.room.%s.token";
 
-	public static final String SETTING_USE_PROJECT_ROOMS = "hipchat.useProjectRooms";
-
 	public static final String SETTING_POST_PERSONAL_REPOS = "hipchat.postPersonalRepos";
 
 	public static final String SETTING_POST_TICKETS = "hipchat.postTickets";
