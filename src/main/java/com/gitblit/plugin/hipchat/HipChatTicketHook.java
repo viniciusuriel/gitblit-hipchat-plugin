@@ -209,7 +209,7 @@ public class HipChatTicketHook extends TicketHook {
 			List<RevCommit> commits = getCommits(ticket.repository, base, tip);
 			sb.append("\n<table><tbody>\n");
 			int shortIdLen = settings.getInteger(Keys.web.shortCommitIdLength, 6);
-			int maxCommits = 5;
+			int maxCommits = Integer.MAX_VALUE;
 			for (int i = 0; i < Math.min(maxCommits, commits.size()); i++) {
 				RevCommit commit = commits.get(i);
 				String username = "";

@@ -202,7 +202,7 @@ public class HipChatReceiveHook extends ReceiveHook {
 		if (commits != null) {
 			// abbreviated commit list
 			int shortIdLen = receivePack.getGitblit().getSettings().getInteger(Keys.web.shortCommitIdLength, 6);
-			int maxCommits = 5;
+			int maxCommits = Integer.MAX_VALUE;
 			sb.append("\n<table><tbody>\n");
 			for (int i = 0; i < Math.min(maxCommits, commits.size()); i++) {
 				RevCommit commit = commits.get(i);
