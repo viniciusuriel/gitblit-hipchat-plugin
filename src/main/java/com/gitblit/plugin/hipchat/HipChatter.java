@@ -126,7 +126,7 @@ public class HipChatter implements IManager {
     public void setRoom(RepositoryModel repository, Payload payload) {
         String key = null;
         if (repository != null) {
-            key = repository.projectPath + "/" + repository.name;
+            key = repository.name;
         }
 
         payload.setRoom(findRoomByRepo(key).getRoomName());

@@ -1,5 +1,10 @@
 ## Gitblit HipChat plugin
 
+### 2.0.0
+
+- New configuration properties 
+- Sending full commit message to hipchat
+
 ### 1.1.2
 
 - Fix patchset review events
