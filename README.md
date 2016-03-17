@@ -1,5 +1,8 @@
 ## Gitblit HipChat plugin
 
+This is a modified version of the original plugin provider by Jarmes Morger. I have introduced a more flexible
+ configuration model allowing arbitrary naming for rooms and mapping between rooms and repositories.  
+
 *REQUIRES 1.5.0*
 
 The Gitblit HipChat plugin provides realtime integration for your HipChat team.  The plugin inject events into a room for branch or tag changes and ticket changes.
@@ -45,12 +48,6 @@ The ticket hook is automatic.
 
 The receive hook is automatic.
 
-#### SSH Commands (optional)
-
-This plugin also provides a generic mechanism to inject messages into a HipChat room.  These commands require administrator permissions.
-
-    ssh host hipchat test
-    ssh host hipchat send myroom -m "'this is a test'"
 
 ### Building against a Gitblit RELEASE
 
