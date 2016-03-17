@@ -1,7 +1,10 @@
 ## Gitblit HipChat plugin
 
-This is a modified version of the original plugin provider by Jarmes Morger. I have introduced a more flexible
- configuration model allowing arbitrary naming for rooms and mapping between rooms and repositories.  
+This is a modified version of the original plugin provider by Jarmes Morger.
+What is changed:
+  - I have introduced a more flexible configuration model allowing arbitrary naming for rooms and mapping between rooms and repositories.
+  - Now we send the full commit message instead of the short one.
+
 
 *REQUIRES 1.5.0*
 
