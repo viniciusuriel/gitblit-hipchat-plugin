@@ -1,12 +1,12 @@
 ## Gitblit HipChat plugin
 
-This is a modified version of the original plugin provider by Jarmes Morger.
+This is a modified version of the original plugin provided by Jarmes Morger.
 What is changed:
   - I have introduced a more flexible configuration model allowing arbitrary naming for rooms and mapping between rooms and repositories.
   - Now we send the full commit message instead of the short one.
 
 
-*REQUIRES 1.5.0*
+*REQUIRES 1.5.0+*
 
 The Gitblit HipChat plugin provides realtime integration for your HipChat team.  The plugin inject events into a room for branch or tag changes and ticket changes.
 
@@ -31,7 +31,7 @@ The example below show how to configure a single room:
     hipchat.room.0.repo = <repo_name>
     
 For the sake of simplicity this plugin will scan for 200 rooms configurations only.
-I have choose to keep the concept of defaultRoom, in this case the lowest index room is the defaultRoom
+I have chosen to keep the concept of defaultRoom, in this case the lowest index room is the defaultRoom
 
 There a handful of additional optional settings:
 
